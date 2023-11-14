@@ -47,7 +47,7 @@
         <br>
         <input type="button" id="btnGerarJogos" value="Gerar arquivo de Jogos">
         <br>
-        <input type="button" id="btnGerarClientes" value="Gerar arquivo de Clientes">
+        <input type="button" id="btnGerarClientes" value="Gerar arquivo de Clientes"  onClick="window.open('geradores/geraCliente.php', '_top')">
         <br>
         <input type="button" id="btnGerarVendas" value="Gerar arquivo de Vendas">
     </div>
