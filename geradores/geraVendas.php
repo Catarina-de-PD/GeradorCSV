@@ -4,24 +4,23 @@ include('../conexaoBD.php');
 
 try {
     $pdo = conectarBD();
-    $stmt = $pdo->prepare("select * from clientes order by idCliente");
+    $stmt = $pdo->prepare("select * from vendas order by idVendas");
     $stmt->execute();
 
-    $fp = fopen('../arquivos/arquivoCliente.csv', 'w');
+    $fp = fopen('../arquivos/arquivoVendas.csv', 'w');
     
-    $colunasTitulo = array("idCliente", "nome", "cpf", "cep", "sexo");
+    $colunasTitulo = array("idVendas", "idCliente", "idJogo", "quantidade");
 
     fputcsv($fp, $colunasTitulo);
 
     while ($row = $stmt->fetch()) {
+        $idVendas = $row["idVendas"];
         $idCliente = $row["idCliente"];
-        $nome = $row["nome"];
-        $cpf = $row["cpf"];
-        $cep = $row["cep"];
-        $sexo = $row["sexo"];
+        $idJogo = $row["idJogo"];
+        $quantidade = $row["quantidade"];
 
         $lista = array (
-            array($idCliente, $nome, $cpf, $cep, $sexo)
+            array($idVendas, $idCliente, $idJogo, $quantidade)
         );
         
         foreach ($lista as $linha) {
@@ -29,7 +28,7 @@ try {
         }        
     }
 
-    $msg = "Arquivo gerado: arquivoCliente.csv";    
+    $msg = "Arquivo gerado: arquivoVendas.csv";    
     fclose($fp);
 
 } catch (PDOException $e) {
@@ -41,7 +40,7 @@ try {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Listagem de Cliente em CSV</title>
+    <title>Listagem de Vendas em CSV</title>
     <style type="text/css">
         body{
             background-color: rgb(32, 33, 36);

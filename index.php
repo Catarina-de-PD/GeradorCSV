@@ -45,11 +45,11 @@
         <br>
         <img src="imagem/controle.png">
         <br>
-        <input type="button" id="btnGerarJogos" value="Gerar arquivo de Jogos">
+        <input type="button" id="btnGerarJogos" value="Gerar arquivo de Jogos" onClick="window.open('geradores/geraJogo.php', '_top')">
         <br>
-        <input type="button" id="btnGerarClientes" value="Gerar arquivo de Clientes"  onClick="window.open('geradores/geraCliente.php', '_top')">
+        <input type="button" id="btnGerarClientes" value="Gerar arquivo de Clientes" onClick="window.open('geradores/geraCliente.php', '_top')">
         <br>
-        <input type="button" id="btnGerarVendas" value="Gerar arquivo de Vendas">
+        <input type="button" id="btnGerarVendas" value="Gerar arquivo de Vendas" onClick="window.open('geradores/geraVendas.php', '_top')">
     </div>
 </body>
 </html>
